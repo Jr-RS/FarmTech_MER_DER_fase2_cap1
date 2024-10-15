@@ -71,6 +71,10 @@ copiar o código do arquivo 'estrutura_MER_DER.xml', colar no SQL Designer e cli
 - Relatórios: Geração de relatórios sobre o uso de água e variação de pH ao longo do tempo.
 
 
+### Previa do Projeto
+
+![alt text](image.png)
+
 ## 🗃 Histórico de lançamentos
 
 * 0.1.0 - 14/10/2024
