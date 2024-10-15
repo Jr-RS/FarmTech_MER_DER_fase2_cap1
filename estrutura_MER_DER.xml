@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer -->
+<sql>
+<datatypes db="mysql">
+	<group label="Numeric" color="rgb(238,238,170)">
+		<type label="Integer" length="0" sql="INTEGER" quote=""/>
+	</group>
+	<group label="Character" color="rgb(255,200,200)">
+		<type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+	</group>
+	<group label="Date &amp; Time" color="rgb(200,255,200)">
+		<type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+	</group>
+</datatypes>
+
+<!-- Tabela ProdutorRural -->
+<table x="118" y="98" name="ProdutorRural">
+	<row name="id_produtor" null="1" autoincrement="1">
+		<datatype>INTEGER</datatype>
+		<default>NULL</default>
+	</row>
+	<row name="nome_produtor" null="0" autoincrement="0">
+		<datatype>VARCHAR(100)</datatype>
+	</row>
+	<row name="localizacao_fazenda" null="0" autoincrement="0">
+		<datatype>VARCHAR(255)</datatype>
+	</row>
+	<key type="PRIMARY" name="">
+		<part>id_produtor</part>
+	</key>
+</table>
+
+<!-- Tabela Plantacao -->
+<table x="360" y="98" name="Plantacao">
+	<row name="id_plantacao" null="1" autoincrement="1">
+		<datatype>INTEGER</datatype>
+		<default>NULL</default>
+	</row>
+	<row name="id_produtor" null="0" autoincrement="0">
+		<datatype>INTEGER</datatype>
+		<relation table="ProdutorRural" row="id_produtor" />
+	</row>
+	<row name="tipo_cultura" null="0" autoincrement="0">
+		<datatype>VARCHAR(50)</datatype>
+	</row>
+	<row name="area_plantada" null="0" autoincrement="0">
+		<datatype>INTEGER</datatype>
+	</row>
+	<row name="data_plantio" null="0" autoincrement="0">
+		<datatype>DATETIME</datatype>
+	</row>
+	<key type="PRIMARY" name="">
+		<part>id_plantacao</part>
+	</key>
+</table>
+
+<!-- Tabela Sensor -->
+<table x="600" y="98" name="Sensor">
+	<row name="id_sensor" null="1" autoincrement="1">
+		<datatype>INTEGER</datatype>
+		<default>NULL</default>
+	</row>
+	<row name="id_plantacao" null="0" autoincrement="0">
+		<datatype>INTEGER</datatype>
+		<relation table="Plantacao" row="id_plantacao" />
+	</row>
+	<row name="tipo_sensor" null="0" autoincrement="0">
+		<datatype>VARCHAR(50)</datatype>
+	</row>
+	<row name="localizacao_sensor" null="0" autoincrement="0">
+		<datatype>VARCHAR(100)</datatype>
+	</row>
+	<key type="PRIMARY" name="">
+		<part>id_sensor</part>
+	</key>
+</table>
+
+<!-- Tabela LeituraSensor -->
+<table x="840" y="98" name="LeituraSensor">
+	<row name="id_leitura" null="1" autoincrement="1">
+		<datatype>INTEGER</datatype>
+		<default>NULL</default>
+	</row>
+	<row name="id_sensor" null="0" autoincrement="0">
+		<datatype>INTEGER</datatype>
+		<relation table="Sensor" row="id_sensor" />
+	</row>
+	<row name="data_hora_leitura" null="0" autoincrement="0">
+		<datatype>DATETIME</datatype>
+	</row>
+	<row name="valor_leitura" null="0" autoincrement="0">
+		<datatype>INTEGER</datatype>
+	</row>
+	<key type="PRIMARY" name="">
+		<part>id_leitura</part>
+	</key>
+</table>
+
+<!-- Tabela AplicacaoIrrigacaoNutrientes -->
+<table x="1080" y="98" name="AplicacaoIrrigacaoNutrientes">
+	<row name="id_aplicacao" null="1" autoincrement="1">
+		<datatype>INTEGER</datatype>
+		<default>NULL</default>
+	</row>
+	<row name="id_plantacao" null="0" autoincrement="0">
+		<datatype>INTEGER</datatype>
+		<relation table="Plantacao" row="id_plantacao" />
+	</row>
+	<row name="data_hora_aplicacao" null="0" autoincrement="0">
+		<datatype>DATETIME</datatype>
+	</row>
+	<row name="quantidade_agua" null="0" autoincrement="0">
+		<datatype>INTEGER</datatype>
+	</row>
+	<row name="quantidade_nutrientes" null="0" autoincrement="0">
+		<datatype>INTEGER</datatype>
+	</row>
+	<key type="PRIMARY" name="">
+		<part>id_aplicacao</part>
+	</key>
+</table>
+
+</sql>
